@@ -13,6 +13,11 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout repository branch
+      uses: actions/checkout@v4
+      with:
+        ref: main
+    
     - name: Install python sdk
       uses: actions/setup-python
       with:
