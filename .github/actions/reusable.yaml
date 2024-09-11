@@ -13,7 +13,10 @@ jobs:
   install:
     runs-on: ubuntu-latest
     steps:
-      - name: Install python sdk
-        uses: actions/setup-python
-        with:
-          python-version: ${{ inputs.pythonVersion }}
+    - name: Install python sdk
+      uses: actions/setup-python
+      with:
+        python-version: ${{ inputs.pythonVersion }}
+
+    - name: Print go env
+      run: go env
