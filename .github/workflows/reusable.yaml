@@ -23,5 +23,5 @@ jobs:
         with:
           python-version: ${{ inputs.pythonVersion }}
 
-      - name: Print go env
+      - name: Print python env
         run: python3 -h
