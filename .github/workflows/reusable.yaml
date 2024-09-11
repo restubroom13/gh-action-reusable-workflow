@@ -1,0 +1,27 @@
+name: Reusable Workflow
+
+on:
+  workflow_call:
+    inputs:
+      pythonVersion:
+        description: Setup your specific python version
+        required: false
+        type: string
+        default: pypy3.9
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install python sdk
+        uses: actions/setup-python
+        with:
+          python-version: ${{ inputs.pythonVersion }}
+
+      - name: Print go env
+        run: go env
